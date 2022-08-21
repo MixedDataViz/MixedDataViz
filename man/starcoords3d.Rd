@@ -36,7 +36,7 @@ plot.starcoords3D(
 \item{...}{Some other parameters from rgl functions.}
 }
 \value{
-An interactive 3D star coordinates plot.}
+An interactive 3D star coordinates plot.
 }
 \description{
 3D star coordinates visualization function
