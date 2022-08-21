@@ -1,0 +1,17 @@
+Package: mixedviz
+Title: R package for Visualizing Mixed-featured Datasets
+Version: 2.3
+Authors@R: c(person("Yifan", "Zhu", role = c("cre", "aut"),
+                    email = "yifanzhu@iastate.edu"),
+             person("Fan", "Dai", role = "aut",
+                    email = "fand@mtu.edu"),
+             person("Ranjan", "Maitra", role = "aut",
+                    email = "maitra@iastate.edu"))
+Description: It can be used to visualize the data in 3D space.
+Depends: R (>= 3.3.0), rgl (>= 0.100.19)
+License: GPL (>= 2)
+Encoding: UTF-8
+LazyData: true
+Imports:
+        rgl (>= 0.100.19)
+RoxygenNote: 7.1.1
