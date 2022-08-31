@@ -1,7 +1,7 @@
-An Introduction to mixedviz for Visualizing Mixed-featured Data
+An Introduction to MixedDataViz for Visualizing Mixed-featured Data
 ================
 
-This package is developed for 3D radial visualization of high-dimensional and mixed-featured datasets. We propose a Max-Ratio Projection (MRP) method that utilizes the group information in high dimensions to provide distinctive lower-dimensional projections that are then displayed in the 3D space. Our methodology is extended to datasets with discrete and mixed features where a generalized distributional transform (GDT) is used in conjuction with copula models before applying MRP and the 3D visualization. Our display engine is called starcoords3D that extends the classic 2D star coordinates visualization and displays multivariate data on the 3D space. This document gives a brief introduction to the functions included in `mixedviz` with several application examples.
+This package is developed for 3D radial visualization of high-dimensional and mixed-featured datasets. We propose a Max-Ratio Projection (MRP) method that utilizes the group information in high dimensions to provide distinctive lower-dimensional projections that are then displayed in the 3D space. Our methodology is extended to datasets with discrete and mixed features where a generalized distributional transform (GDT) is used in conjuction with copula models before applying MRP and the 3D visualization. Our display engine is called starcoords3D that extends the classic 2D star coordinates visualization and displays multivariate data on the 3D space. This document gives a brief introduction to the functions included in `MixedDataViz` with several application examples.
 
 Instructions for interactive views
 ----------------------------------
@@ -13,7 +13,7 @@ The 3D interative plots are implemented with the `rgl` functions and here are in
 Functions
 ---------
 
-`mixedviz` contains 3 functions:
+`MixedDataViz` contains 3 functions:
 
 -   `Gtrans`: Transform discrete or mixture of discrete and continuous datasets to continuous datasets with marginal normal(0,1).
 -   `mrp`: Project high-dimensional datasets to lower dimention with max-ratio projection.
@@ -31,7 +31,7 @@ We illustrate the usage of `Gtrans`, `mrp` and `plot.starcoords3D`on datasets wi
 For small datasets with all continuous features, function `plot.starcoords3D` can be applied directly on the original data matrix. The 3D plot below are displayed for the (Fisher's or Anderson's) iris data. The dataset contains 50 flowers measurements for 4 variables, sepal length, sepal width, petal length and petal width which are represented by the 4 anchor points in the plot. Flowers come from each of 3 species, Iris setosa, Iris versicolor, and Iris virginica. Speicies groups are shown in different colors and tagged with name labels.
 
 ``` r
-library(mixedviz)
+library(MixedDataViz)
 data("iris")
 plot.starcoords3D(data = iris[,-5], class = iris[,5])
 ```
@@ -43,7 +43,7 @@ plot.starcoords3D(data = iris[,-5], class = iris[,5])
 Datasets with large dimensions and discrete values can be transformed using `Gtrans` (currently not applicable to categorical variables), and then be reduced using `mrp`. Here we present an example for an Indic scripts dataset (reference link: \url{https://sites.google.com/site/skmdobaidullah/dataset-code}) which is on 116 different features from handwritten scripts of 11 Indic languages. A subset of 5 languages is chosen from 4 regions, namely Bangla (from the east), Gurmukhi (north), Gujarati (west), and Kannada and Malayalam (languages from the neighboring southern states of Karnataka and Kerala) and a sixth language (Urdu, with a distinct Persian script). Some of the features contains discrete values so the dataset is essentially of mixed attributes. We apply `plot.starcoords3D` on the data processed with GDT and MRP to display the similarities and distinctiveness of samples from each languages.
 
 ``` r
-library(mixedviz)
+library(MixedDataViz)
 data("scripts")
 scriptdf = Gtrans(data = sn.g.df[,-117])
 scriptdf = mrp(data = scriptdf, cl = sn.g.df[,117], npc = 4)
